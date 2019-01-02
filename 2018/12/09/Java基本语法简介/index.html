@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据类型基本类型八种基本类型1.六种数字类型（四种整数型，两个浮点型）：整数型  byte (1 byte) : -128 ~ +127 short (2 byte) -32768 ~ 32767 int （4 byte）  -2147438648 ~ +2147438647  long (8 byte)  unsigned byte (1 byte): 0 ~ 255 unsigned shor">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基本语法简介">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/Java基本语法简介/index.html">
+<meta property="og:site_name" content="醉里挑灯看剑">
+<meta property="og:description" content="数据类型基本类型八种基本类型1.六种数字类型（四种整数型，两个浮点型）：整数型  byte (1 byte) : -128 ~ +127 short (2 byte) -32768 ~ 32767 int （4 byte）  -2147438648 ~ +2147438647  long (8 byte)  unsigned byte (1 byte): 0 ~ 255 unsigned shor">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-02T09:39:27.695Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基本语法简介">
+<meta name="twitter:description" content="数据类型基本类型八种基本类型1.六种数字类型（四种整数型，两个浮点型）：整数型  byte (1 byte) : -128 ~ +127 short (2 byte) -32768 ~ 32767 int （4 byte）  -2147438648 ~ +2147438647  long (8 byte)  unsigned byte (1 byte): 0 ~ 255 unsigned shor">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/09/Java基本语法简介/">
+
+
+
+
+
+  <title>Java基本语法简介 | 醉里挑灯看剑</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">醉里挑灯看剑</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/Java基本语法简介/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="希音">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="醉里挑灯看剑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java基本语法简介</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-09T12:44:54+08:00">
+                2018-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><p>八种基本类型<br>1.六种数字类型（四种整数型，两个浮点型）：<br>整数型</p>
+<ul>
+<li>byte (1 byte) : -128 ~ +127</li>
+<li>short (2 byte) -32768 ~ 32767</li>
+<li>int （4 byte）  -2147438648 ~ +2147438647 </li>
+<li>long (8 byte) </li>
+<li>unsigned byte (1 byte): 0 ~ 255</li>
+<li>unsigned short (2 bytes): 0 ~ 0~65535</li>
+<li>unsigned int (4 bytes): 0~4294967295</li>
+<li>unsigned long (8 bytes)</li>
+</ul>
+<p>浮点数</p>
+<ul>
+<li><p>float (4 byte): 3.4E-38 - 3.4E+38<br>精度：8, 23</p>
+</li>
+<li><p>double (8 byte):  1.7E-308 —— 1.7E+308<br>精度：11, 52</p>
+</li>
+</ul>
+<p>2.一种字符类型：char</p>
+<p>3.一种布尔类型：boolean</p>
+<p>有且只有这八种基本类型，每种基本类型都有对应的包装类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num <span class="number">5</span></span><br><span class="line"><span class="keyword">double</span> square = <span class="number">13.4</span></span><br><span class="line"><span class="keyword">boolean</span> isUpdated = <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p>对象、数组和枚举都是引用类型Class,Interface,Array,Enum<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Apple a = new Apple();</span><br><span class="line">List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure></p>
+<h2 id="表达式和语句"><a href="#表达式和语句" class="headerlink" title="表达式和语句"></a>表达式和语句</h2><p>表达式就是计算过程</p>
+<ul>
+<li>基本的数学计算<br>“1+2”, “3/5”,”3&gt;5”,”1==2”<br>每个表达式都有一个返回值</li>
+<li>方法调用<br>“sqrt(1)”,”dog.walk()”<br>方法调用可以有返回值<br>方法调用也可以没有返回值（或者说是返回值为空）</li>
+<li>表达式和语句都已”;”表示结束</li>
+</ul>
+<h2 id="变量和赋值"><a href="#变量和赋值" class="headerlink" title="变量和赋值"></a>变量和赋值</h2><ul>
+<li>变量是对一个Java对象的引用</li>
+<li>声明一个变量时候需要指定其类型，表示它可以引用的对象类型</li>
+<li>赋值是把一个对象绑定到一个变量，反过来说，是让一个变量引用到一个对象</li>
+</ul>
+<p>语法：&lt;类型&gt; 变量名 = 值</p>
+<p>eg:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = <span class="number">3</span>;</span><br><span class="line">String fruitName = <span class="string">"apple"</span>;</span><br><span class="line"><span class="keyword">double</span> pi = <span class="number">3.1414526</span>;</span><br><span class="line"><span class="keyword">char</span> ch = <span class="string">"x"</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h2><h3 id="逻辑控制语句"><a href="#逻辑控制语句" class="headerlink" title="逻辑控制语句"></a>逻辑控制语句</h3><ul>
+<li><p>if语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(布尔表达式) &#123;</span><br><span class="line">  <span class="comment">//执行语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if-else 语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(布尔表达式) &#123;</span><br><span class="line">  <span class="comment">// 如果布尔表达式的值为true</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// 如果布尔表达式的值为false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>if - else if - else 语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="comment">//布尔表达式1为真时执行的语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(布尔表达式<span class="number">2</span>)&#123;</span><br><span class="line">  <span class="comment">// 布尔表达式2为真时执行的语句</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">//以上都不为真时执行的语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>嵌套if语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(布尔表达式<span class="number">1</span>) &#123;</span><br><span class="line">  <span class="comment">// 布尔表达式1为真时执行的语句</span></span><br><span class="line">  <span class="keyword">if</span>(布尔表达式<span class="number">2</span>) &#123;</span><br><span class="line">    布尔表达式<span class="number">2</span>为真时执行的语句</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>switch 语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression) &#123;</span><br><span class="line">  <span class="keyword">case</span> value:</span><br><span class="line">    <span class="comment">//语句</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> value: </span><br><span class="line">    <span class="comment">//语句</span></span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="comment">//语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="循环控制语句"><a href="#循环控制语句" class="headerlink" title="循环控制语句"></a>循环控制语句</h3><p>如果想要同样的操作执行多次，就需要使用循环结构<br>Java中有三种主要的循环结构：</p>
+<ul>
+<li><p>while 循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(布尔表达式) &#123;</span><br><span class="line">  <span class="comment">//循环内容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>do…while</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">  <span class="comment">//代码语句</span></span><br><span class="line">&#125; <span class="keyword">while</span>(布尔表达式);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>for (循环)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(初始值; 布尔表达式; 更新) &#123;</span><br><span class="line">  <span class="comment">//代码语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Java类型模型"><a href="#Java类型模型" class="headerlink" title="Java类型模型"></a>Java类型模型</h3><ul>
+<li>类：类是一个模板，它描述一类对象的行为和状态</li>
+<li>对象: 对象是类的一个实例， 有具体的状态</li>
+<li>方法：类中定义的该类的实例对象所具有的行为</li>
+<li><p>静态方法： 隶属于类本身的方法</p>
+</li>
+<li><p>Java里的常量和变量都可以对应于一个对象， 这个对象的行为和具有的属性是由类来定义的</p>
+</li>
+<li>Java 程序的基本结构就是一系列类的定义，类之间的关系和具体类的对象之间的互相操作</li>
+</ul>
+<h4 id="Java类"><a href="#Java类" class="headerlink" title="Java类"></a>Java类</h4><ul>
+<li>类是一个模板，他描述一类对象的行为和状态</li>
+<li>语义上表达的是一类实体（对象）的抽象</li>
+<li>在Java 中的惯例是一个文件中存放一个public类</li>
+</ul>
+<h4 id="Java对象"><a href="#Java对象" class="headerlink" title="Java对象"></a>Java对象</h4><ul>
+<li>对象：对象是类的一个实例</li>
+<li>语义上是表达一个java类的实体</li>
+<li>对象是一般情况下Java语言里的”一等公民”</li>
+<li>对象可以赋值到一个变量</li>
+<li>对象是通过new语句进行创建</li>
+</ul>
+<h4 id="Java方法和成员变量"><a href="#Java方法和成员变量" class="headerlink" title="Java方法和成员变量"></a>Java方法和成员变量</h4><ul>
+<li>方法：类中定义的该类的实例对象所具有的行为</li>
+<li>静态方法： 隶属于类本身的方法</li>
+<li>&lt;返回类型&gt; 方法名（&lt;参数类型&gt; 参数名） {代码;return&lt;返回值&gt;;}</li>
+<li>一个方法由”方法名 + 参数类型”确定</li>
+<li>相同方法名，不同参数类型，是不同的方法（重载）</li>
+<li>成员变量即对象或类中的变量，其作用域在类中，或对象中</li>
+<li>可以用修饰符控制方法和成员变量的作用域</li>
+</ul>
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><ul>
+<li>修饰符用于控制变量，类的作用域和一些访问限制</li>
+</ul>
+<h5 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h5><ul>
+<li>访问权限修饰符： public,protected,private,default(即不设置)</li>
+<li>private和protected 不能修饰外部类</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th style="text-align:center">当前类</th>
+<th style="text-align:center">同一包内</th>
+<th style="text-align:center">子孙类（同一包）</th>
+<th style="text-align:center">子孙类（不同包）</th>
+<th style="text-align:center">其他包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+</tr>
+<tr>
+<td>protected</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">子孙与基类是否在同一包中</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td>default</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+</tr>
+<tr>
+<td>private</td>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+<td style="text-align:center">N</td>
+</tr>
+</tbody>
+</table>
+<h5 id="非访问修饰符"><a href="#非访问修饰符" class="headerlink" title="非访问修饰符"></a>非访问修饰符</h5><p>static 修饰符：用来修饰类方法和类变量<br>final 修饰符：用来修饰类、方法和变量，final修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。<br>abstract 修饰符：用来创建抽象类和抽象方法<br>synchronized和volatile修饰符：主要用于多线程并发编程。</p>
+<h4 id="包和层次结构"><a href="#包和层次结构" class="headerlink" title="包和层次结构"></a>包和层次结构</h4><ul>
+<li>“包”： 用来表示具有层次结构的命名空间</li>
+<li>“package com.jirengu.java-system;”</li>
+<li>层次结构：包 –&gt; 类（对象）–&gt; 方法 –&gt; 代码块</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/09/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/13/Java面向对象语法相关语法及其语义/" rel="prev" title="Java面向对象相关语法及其语义">
+                Java面向对象相关语法及其语义 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">希音</p>
+              <p class="site-description motion-element" itemprop="description">念念不忘，必有回响。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Hanoch-Li" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.2.</span> <span class="nav-text">引用类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式和语句"><span class="nav-number">2.</span> <span class="nav-text">表达式和语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量和赋值"><span class="nav-number">3.</span> <span class="nav-text">变量和赋值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制语句"><span class="nav-number">4.</span> <span class="nav-text">控制语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑控制语句"><span class="nav-number">4.1.</span> <span class="nav-text">逻辑控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环控制语句"><span class="nav-number">4.2.</span> <span class="nav-text">循环控制语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java类型模型"><span class="nav-number">4.3.</span> <span class="nav-text">Java类型模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java类"><span class="nav-number">4.3.1.</span> <span class="nav-text">Java类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java对象"><span class="nav-number">4.3.2.</span> <span class="nav-text">Java对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java方法和成员变量"><span class="nav-number">4.3.3.</span> <span class="nav-text">Java方法和成员变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修饰符"><span class="nav-number">4.3.4.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#访问修饰符"><span class="nav-number">4.3.4.1.</span> <span class="nav-text">访问修饰符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#非访问修饰符"><span class="nav-number">4.3.4.2.</span> <span class="nav-text">非访问修饰符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包和层次结构"><span class="nav-number">4.3.5.</span> <span class="nav-text">包和层次结构</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">希音</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"right","width":150,"height":200},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
