@@ -293,6 +293,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/SQLite学习笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="希音">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="醉里挑灯看剑">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/27/SQLite学习笔记/" itemprop="url">SQLite学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T09:46:30+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="SQLite简介"><a href="#SQLite简介" class="headerlink" title="SQLite简介"></a>SQLite简介</h3><p>SQLite是一个进程内的库，实现了自给自足的、无服务器的、零配置的、事务性的SQL数据库引擎。它是一个零配置的数据库，这意味着与其他数据库一样，您不需要在系统中配置。<br>就像其他数据库，SQLite引擎不是一个独立的进程，可以按应用程序需求进行静态或动态连接。SQLite直接访问其存储文件。</p>
+<h3 id="SQLite安装"><a href="#SQLite安装" class="headerlink" title="SQLite安装"></a>SQLite安装</h3><h2 id="在windows上安装SQLite"><a href="#在windows上安装SQLite" class="headerlink" title="在windows上安装SQLite"></a>在windows上安装SQLite</h2><ul>
+<li>请访问<a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener">SQLite下载页面</a>，从winsdows区下载预编译的二进制文件。</li>
+<li>您需要下载sqlite-tools-win32-<em>.zip和sqlite-dll-win32-</em>.zip压缩文件</li>
+<li>创建文件夹 C:\sqlite，并在此文件夹下解压上面两个压缩文件，将得到 sqlite3.def、sqlite3.dll 和 sqlite3.exe 文件。</li>
+<li>添加 C:\sqlite 到 PATH 环境变量，最后在命令提示符下，使用 sqlite3 命令，将显示如下结果。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;sqlite3</span><br><span class="line">SQLite version 3.7.15.2 2013-01-09 11:53:05</span><br><span class="line">Enter &quot;.help&quot; for instructions</span><br><span class="line">Enter SQL statements terminated with a &quot;;&quot;</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="在Linux上安装SQLite"><a href="#在Linux上安装SQLite" class="headerlink" title="在Linux上安装SQLite"></a>在Linux上安装SQLite</h3><p>查看本机是否已经安装了SQLite<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sqlite3</span><br><span class="line">SQLite version 3.7.15.2 2013-01-09 11:53:05</span><br><span class="line">Enter &quot;.help&quot; for instructions</span><br><span class="line">Enter SQL statements terminated with a &quot;;&quot;</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果没有，可以使用apt-get安装</p>
+<h3 id="在Mac-OS-X-上安装SQLite"><a href="#在Mac-OS-X-上安装SQLite" class="headerlink" title="在Mac OS X 上安装SQLite"></a>在Mac OS X 上安装SQLite</h3><p>最新版本的Mac OS X 会预安装SQLite,但是如果没有可用的安装，只需按照如下步骤进行：<br>请访问<a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener">SQLite下载页面</a>,从源代码区下载sqlite-autoconf-*.tar.gz。<br>步骤如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvzf sqlite-autoconf-3071502.tar.gz</span><br><span class="line">$ cd sqlite-autoconf-3071502</span><br><span class="line">$ ./configure --prefix=/usr/local</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure></p>
+<p>上述步骤将在 Mac OS X 机器上安装 SQLite，您可以使用下列命令进行验证：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sqlite3</span><br><span class="line">SQLite version 3.7.15.2 2013-01-09 11:53:05</span><br><span class="line">Enter &quot;.help&quot; for instructions</span><br><span class="line">Enter SQL statements terminated with a &quot;;&quot;</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SQLite命令"><a href="#SQLite命令" class="headerlink" title="SQLite命令"></a>SQLite命令</h3><p>在命令提示符下键入一个简单的 sqlite3 命令，在 SQLite 命令提示符下，您可以使用各种 SQLite 命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sqlite3</span><br><span class="line">SQLite version 3.3.6</span><br><span class="line">Enter &quot;.help&quot; for instructions</span><br><span class="line">sqlite&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如需获取可用的点命令的清单，可以在任何时候输入 “.help”。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite&gt;.help</span><br></pre></td></tr></table></figure></p>
+<p>上面的命令会显示各种重要的 SQLite 点命令的列表，如下所示：</p>
+<p>—|:–:|<br>.backup?DB?FILE|备份DB数据库（默认是“main”）到FILE文件<br>.bail ON|OFF|发生错误后停止。默认为OFF。<br>.databases|列出数据库的名称及其所依附的文件<br>.dump?TABLE?|以SQL文本格式转储数据库。如果指定了TABLE表，则只转储匹配LIKE模式的TABLE表<br>.echo ON&amp;#124OFF|开启或关闭日志。FILE文件可以是stderr(标准错误)/stdout(标准输出)<br>.mode MODE|设置输出模式，MODE可以是下列之一：<br>.nullvalues STRING|在NULL值的地方输出STRING字符串<br>.output FILENAME|发送输出到FILENAME文件<br>.output stdout|发送输出到屏幕<br>.print STRING…逐字地输出STRING字符串<br>.prompt MAIN CONTINUM|替换标准提示符<br>.quit|退出SQLite提示符<br>.read FILENAME|执行FILENAME文件中的SQL<br>.schema?TABLE?|显示CREATE语句。如果指定了TABLE表，则只显示匹配LIKE模式的TABLE表</p>
+<h3 id="SQLite语法"><a href="#SQLite语法" class="headerlink" title="SQLite语法"></a>SQLite语法</h3><ul>
+<li>SQLite 是不区分大小写的，但也有一些命令是大小写敏感的，比如GLOB和glob在SQLite的语句中有不同的含义</li>
+<li>SQLite 注释以两个连续的 “-“ 字符（ASCII 0x2d）开始，并扩展至下一个换行符（ASCII 0x0a）或直到输入结束，以先到者为准。</li>
+<li>所有的 SQLite 语句可以以任何关键字开始，如 SELECT、INSERT、UPDATE、DELETE、ALTER、DROP 等，所有的语句以分号（;）结束。</li>
+</ul>
+<h3 id="SQLite数据类型"><a href="#SQLite数据类型" class="headerlink" title="SQLite数据类型"></a>SQLite数据类型</h3><p>SQLite 数据类型是一个用来指定任何对象的数据类型的属性。SQLite 中的每一列，每个变量和表达式都有相关的数据类型。<br>您可以在创建表的同时使用这些数据类型。SQLite 使用一个更普遍的动态类型系统。在 SQLite 中，值的数据类型与值本身是相关的，而不是与它的容器相关。</p>
+<h3 id="SQLite-创建数据库"><a href="#SQLite-创建数据库" class="headerlink" title="SQLite 创建数据库"></a>SQLite 创建数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sqlite3 DatabaseName.db</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-附加数据库"><a href="#SQLite-附加数据库" class="headerlink" title="SQLite 附加数据库"></a>SQLite 附加数据库</h3><p>假设这样一种情况，当在同一时间有多个数据库可用，您想使用其中的任何一个。SQLite 的 ATTACH DATABASE 语句是用来选择一个特定的数据库，使用该命令后，所有的 SQLite 语句将在附加的数据库下执行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ATTACH DATABASE &apos;DatabaseName&apos; As &apos;Alias-Name&apos;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="分离数据库"><a href="#分离数据库" class="headerlink" title="分离数据库"></a>分离数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DETACH DATABASE &apos;Alias-Name&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite创建表"><a href="#SQLite创建表" class="headerlink" title="SQLite创建表"></a>SQLite创建表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE database_name.table_name(</span><br><span class="line">   column1 datatype  PRIMARY KEY(one or more columns),</span><br><span class="line">   column2 datatype,</span><br><span class="line">   column3 datatype,</span><br><span class="line">   .....</span><br><span class="line">   columnN datatype,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-删除表"><a href="#SQLite-删除表" class="headerlink" title="SQLite 删除表"></a>SQLite 删除表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE database_name.table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Insert语句"><a href="#SQLite-Insert语句" class="headerlink" title="SQLite Insert语句"></a>SQLite Insert语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO TABLE_NAME [(column1, column2, column3,...columnN)]  </span><br><span class="line">VALUES (value1, value2, value3,...valueN);</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-select语句"><a href="#SQLite-select语句" class="headerlink" title="SQLite select语句"></a>SQLite select语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN FROM table_name;</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite运算符"><a href="#SQLite运算符" class="headerlink" title="SQLite运算符"></a>SQLite运算符</h3><p>运算符是一个保留字或字符，主要用于 SQLite 语句的 WHERE 子句中执行操作，如比较和算术运算。<br>运算符用于指定 SQLite 语句中的条件，并在语句中连接多个条件。</p>
+<ul>
+<li>算术运算符</li>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+<li>位运算符</li>
+</ul>
+<h3 id="SQLite-表达式"><a href="#SQLite-表达式" class="headerlink" title="SQLite 表达式"></a>SQLite 表达式</h3><h2 id="布尔表达式"><a href="#布尔表达式" class="headerlink" title="布尔表达式"></a>布尔表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name </span><br><span class="line">WHERE SINGLE VALUE MATCHING EXPRESSION;</span><br></pre></td></tr></table></figure>
+<h2 id="数值表达式"><a href="#数值表达式" class="headerlink" title="数值表达式"></a>数值表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT numerical_expression as  OPERATION_NAME</span><br><span class="line">[FROM table_name WHERE CONDITION] ;</span><br></pre></td></tr></table></figure>
+<h2 id="日期表达式"><a href="#日期表达式" class="headerlink" title="日期表达式"></a>日期表达式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlite&gt;  SELECT CURRENT_TIMESTAMP;</span><br><span class="line">CURRENT_TIMESTAMP = 2013-03-17 10:43:35</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-WHERE子句"><a href="#SQLite-WHERE子句" class="headerlink" title="SQLite WHERE子句"></a>SQLite WHERE子句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [condition]</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-AND-OR-运算符"><a href="#SQLite-AND-OR-运算符" class="headerlink" title="SQLite AND/OR 运算符"></a>SQLite AND/OR 运算符</h3><h2 id="AND-运算符"><a href="#AND-运算符" class="headerlink" title="AND 运算符"></a>AND 运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [condition1] AND [condition2]...AND [conditionN];</span><br></pre></td></tr></table></figure>
+<h2 id="OR-运算符"><a href="#OR-运算符" class="headerlink" title="OR 运算符"></a>OR 运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [condition1] OR [condition2]...OR [conditionN]</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Update-语句"><a href="#SQLite-Update-语句" class="headerlink" title="SQLite Update 语句"></a>SQLite Update 语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE table_name</span><br><span class="line">SET column1 = value1, column2 = value2...., columnN = valueN</span><br><span class="line">WHERE [condition];</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Delete-语句"><a href="#SQLite-Delete-语句" class="headerlink" title="SQLite Delete 语句"></a>SQLite Delete 语句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM table_name</span><br><span class="line">WHERE [condition];</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Like-子句"><a href="#SQLite-Like-子句" class="headerlink" title="SQLite Like 子句"></a>SQLite Like 子句</h3><p>SQLite 的 LIKE 运算符是用来匹配通配符指定模式的文本值。如果搜索表达式与模式表达式匹配，LIKE 运算符将返回真（true），也就是 1。这里有两个通配符与 LIKE 运算符一起使用：</p>
+<ul>
+<li>百分号（%）</li>
+<li>下划线（—）<br>分号（%）代表零个、一个或多个数字或字符。下划线（_）代表一个单一的数字或字符。这些符号可以被组合使用。</li>
+</ul>
+<h3 id="SQLite-GLob-子句"><a href="#SQLite-GLob-子句" class="headerlink" title="SQLite GLob 子句"></a>SQLite GLob 子句</h3><p>SQLite 的 GLOB 运算符是用来匹配通配符指定模式的文本值。如果搜索表达式与模式表达式匹配，GLOB 运算符将返回真（true），也就是 1。与 LIKE 运算符不同的是，GLOB 是大小写敏感的，对于下面的通配符，它遵循 UNIX 的语法。</p>
+<ul>
+<li>星号 （*）</li>
+<li>问号 （?）<br>星号（*）代表零个、一个或多个数字或字符。问号（?）代表一个单一的数字或字符。这些符号可以被组合使用。</li>
+</ul>
+<h3 id="SQLite-limit子句"><a href="#SQLite-limit子句" class="headerlink" title="SQLite limit子句"></a>SQLite limit子句</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name</span><br><span class="line">LIMIT [no of rows] OFFSET [row num]</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Order-By"><a href="#SQLite-Order-By" class="headerlink" title="SQLite Order By"></a>SQLite Order By</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT column-list </span><br><span class="line">FROM table_name </span><br><span class="line">[WHERE condition] </span><br><span class="line">[ORDER BY column1, column2, .. columnN] [ASC | DESC];</span><br></pre></td></tr></table></figure>
+<h3 id="SQLite-Group-By"><a href="#SQLite-Group-By" class="headerlink" title="SQLite Group By"></a>SQLite Group By</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT column-list</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [ conditions ]</span><br><span class="line">GROUP BY column1, column2....columnN</span><br><span class="line">ORDER BY column1, column2....columnN</span><br></pre></td></tr></table></figure>
+<h3 id="Having-子句"><a href="#Having-子句" class="headerlink" title="Having 子句"></a>Having 子句</h3><p>HAVING 子句允许指定条件来过滤将出现在最终结果中的分组结果。<br>WHERE 子句在所选列上设置条件，而 HAVING 子句则在由 GROUP BY 子句创建的分组上设置条件。</p>
+<h3 id="SQLite-Distinct-关键字"><a href="#SQLite-Distinct-关键字" class="headerlink" title="SQLite Distinct 关键字"></a>SQLite Distinct 关键字</h3><p>SQLite 的 DISTINCT 关键字与 SELECT 语句一起使用，来消除所有重复的记录，并只获取唯一一次记录。<br>有可能出现一种情况，在一个表中有多个重复的记录。当提取这样的记录时，DISTINCT 关键字就显得特别有意义，它只获取唯一一次记录，而不是获取重复记录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT column1, column2,.....columnN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [condition]</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/Java面向对象语法相关语法及其语义/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1055,7 +1264,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
